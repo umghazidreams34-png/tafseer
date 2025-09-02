@@ -13,12 +13,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary-color: #8e44ad;
-      --secondary-color: #9b59b6;
-      --accent-color: #f39c12;
-      --light-color: #f9f9f9;
-      --dark-color: #2c3e50;
+      --primary-color: #2D6A4F;
+      --secondary-color: #40916C;
+      --accent-color: #D4A373;
+      --light-color: #F8F9FA;
+      --dark-color: #1B4332;
       --text-color: #333333;
+      --light-green: #B7E4C7;
+      --cream: #FEFAE0;
     }
     
     body {
@@ -52,7 +54,7 @@
     }
     
     .hero {
-      background: linear-gradient(rgba(142, 68, 173, 0.8), rgba(155, 89, 182, 0.8)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%238e44ad" opacity="0.2"/><path d="M30,30 L70,70 M70,30 L30,70" stroke="%23ffffff" stroke-width="8" stroke-linecap="round"/></svg>');
+      background: linear-gradient(rgba(45, 106, 79, 0.85), rgba(64, 145, 108, 0.85)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%232D6A4F" opacity="0.2"/><path d="M30,30 L70,70 M70,30 L30,70" stroke="%23ffffff" stroke-width="8" stroke-linecap="round"/></svg>');
       background-size: 200px;
       color: white;
       padding: 5rem 1rem;
@@ -101,10 +103,12 @@
       border-radius: 15px;
       box-shadow: 0 5px 20px rgba(0,0,0,0.05);
       transition: transform 0.3s ease;
+      border-top: 4px solid var(--primary-color);
     }
     
     section:hover {
       transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
     }
     
     h2 {
@@ -132,6 +136,7 @@
       transition: all 0.3s ease;
       margin-bottom: 1.5rem;
       box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      border-top: 3px solid var(--secondary-color);
     }
     
     .service-card:hover {
@@ -160,7 +165,7 @@
     
     .form-control:focus {
       border-color: var(--primary-color);
-      box-shadow: 0 0 0 0.25rem rgba(142, 68, 173, 0.25);
+      box-shadow: 0 0 0 0.25rem rgba(45, 106, 79, 0.25);
     }
     
     .btn-primary {
@@ -174,7 +179,8 @@
     
     .btn-primary:hover {
       transform: translateY(-3px);
-      box-shadow: 0 5px 15px rgba(142, 68, 173, 0.4);
+      box-shadow: 0 5px 15px rgba(45, 106, 79, 0.4);
+      background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
     }
     
     .package-option {
@@ -188,12 +194,12 @@
     
     .package-option:hover {
       border-color: var(--primary-color);
-      background-color: rgba(142, 68, 173, 0.05);
+      background-color: rgba(45, 106, 79, 0.05);
     }
     
     .package-option.selected {
       border-color: var(--primary-color);
-      background-color: rgba(142, 68, 173, 0.1);
+      background-color: rgba(45, 106, 79, 0.1);
     }
     
     .gender-selection {
@@ -214,21 +220,22 @@
     
     .gender-option:hover {
       border-color: var(--primary-color);
-      background-color: rgba(142, 68, 173, 0.05);
+      background-color: rgba(45, 106, 79, 0.05);
     }
     
     .gender-option.selected {
       border-color: var(--primary-color);
-      background-color: rgba(142, 68, 173, 0.1);
+      background-color: rgba(45, 106, 79, 0.1);
     }
     
     .gender-icon {
       font-size: 2rem;
       margin-bottom: 10px;
+      color: var(--primary-color);
     }
     
     footer {
-      background: linear-gradient(135deg, var(--dark-color), #34495e);
+      background: linear-gradient(135deg, var(--dark-color), var(--primary-color));
       color: white;
       padding: 3rem 1rem;
       text-align: center;
@@ -262,8 +269,9 @@
       text-align: center;
       margin: 3rem 0;
       padding: 2rem;
-      background: linear-gradient(135deg, rgba(142, 68, 173, 0.1), rgba(155, 89, 182, 0.1));
+      background: linear-gradient(135deg, rgba(45, 106, 79, 0.1), rgba(64, 145, 108, 0.1));
       border-radius: 15px;
+      border-left: 4px solid var(--accent-color);
     }
     
     .contact-icon-large {
@@ -292,12 +300,12 @@
     
     .vision-type:hover {
       border-color: var(--primary-color);
-      background-color: rgba(142, 68, 173, 0.05);
+      background-color: rgba(45, 106, 79, 0.05);
     }
     
     .vision-type.selected {
       border-color: var(--primary-color);
-      background-color: rgba(142, 68, 173, 0.1);
+      background-color: rgba(45, 106, 79, 0.1);
     }
     
     .vision-icon {
@@ -523,7 +531,7 @@
         
         <div class="mb-4 mt-4">
           <label for="notes" class="form-label">ملاحظات إضافية</label>
-          <textarea class="form-control" id="notes" name="notes" rows="3" placeholder="أي تفاصيل إضافية ترغب في إضافتها مثل الظروف المحيطة بالرؤيا، المشاعر التي شعرت بها، أو أي أسئلة محددة لديك..."></textarea>
+          <textarea class="form-control" id="notes" name="notes" rows="3" placeholder="أي تفاصيل إضافية ترغب في إضافتها مثل الظروف المحيطة بالرؤيا، المشاعر التي شعرت بها، أو أي أسئلة لديك..."></textarea>
         </div>
         <div class="mb-4">
           <label for="email" class="form-label">البريد الإلكتروني</label>
