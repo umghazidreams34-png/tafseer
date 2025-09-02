@@ -395,6 +395,13 @@
       color: var(--primary-color);
     }
     
+    .alert {
+      border-radius: 12px;
+      padding: 1rem 1.5rem;
+      margin: 1rem 0;
+      display: none;
+    }
+    
     /* تحسينات للعرض في GitHub */
     @media (prefers-color-scheme: dark) {
       body {
@@ -436,7 +443,6 @@
   </style>
 </head>
 <body>
-  <!-- باقي المحتوى يبقى كما هو -->
   <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
     <div class="container">
       <a class="navbar-brand" href="#">
@@ -561,7 +567,26 @@
 
     <section id="form">
       <h2>أرسل رؤياك</h2>
-      <form id="visionForm">
+      
+      <!-- رسائل التنبيه -->
+      <div id="successAlert" class="alert alert-success" role="alert">
+        <i class="fas fa-check-circle me-2"></i>
+        <strong>تم الإرسال بنجاح!</strong> شكراً لك، تم استلام رؤياك وسنتواصل معك قريباً.
+      </div>
+      
+      <div id="errorAlert" class="alert alert-danger" role="alert">
+        <i class="fas fa-exclamation-circle me-2"></i>
+        <strong>خطأ!</strong> حدثت مشكلة أثناء إرسال النموذج. يرجى المحاولة مرة أخرى.
+      </div>
+      
+      <!-- استبدل YOUR_EMAIL_HERE ببريدك الإلكتروني -->
+      <form id="visionForm" action="https://formsubmit.co/umghazi.dreams34@gmail.com" method="POST">
+        <!-- إعدادات FormSubmit -->
+        <input type="hidden" name="_subject" value="طلب تفسير رؤيا جديد - منصة أم غازي">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_next" value="https://yourdomain.com/thank-you.html">
+        <input type="hidden" name="_captcha" value="false">
+        
         <div class="mb-4">
           <label class="form-label">الجنس</label>
           <div class="gender-selection">
@@ -599,7 +624,7 @@
         
         <div class="package-option" onclick="selectPackage(this, 1)">
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="package" value="30" id="option1" required>
+            <input class="form-check-input" type="radio" name="package" value="رؤيا واحدة بـ 30 ريال" id="option1" required>
             <label class="form-check-label fw-bold" for="option1">رؤيا واحدة بـ 30 ريال</label>
           </div>
           <p class="text-muted mt-2">تفسير مفصل لرؤيا واحدة مع متابعة لمدة 3 أيام للاستفسارات.</p>
@@ -607,7 +632,7 @@
         
         <div class="package-option" onclick="selectPackage(this, 2)">
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="package" value="100" id="option2">
+            <input class="form-check-input" type="radio" name="package" value="اشتراك شهري بـ 100 ريال" id="option2">
             <label class="form-check-label fw-bold" for="option2">اشتراك شهري بـ 100 ريال</label>
           </div>
           <p class="text-muted mt-2">تفسير حتى 4 رؤى خلال شهر مع دعم مستمر واجابات على جميع استفساراتك.</p>
@@ -615,7 +640,7 @@
         
         <div class="package-option" onclick="selectPackage(this, 3)">
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="package" value="free" id="option3">
+            <input class="form-check-input" type="radio" name="package" value="رؤيا مجانية" id="option3">
             <label class="form-check-label fw-bold" for="option3">رؤيا مجانية</label>
           </div>
           <p class="text-muted mt-2">تفسير مجاني لرؤيا واحدة بشرط مشاركة المنصة ونشر الخدمة مع الأصدقاء.</p>
@@ -694,12 +719,23 @@
       });
     });
     
+    // إعداد FormSubmit
     document.getElementById('visionForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      alert('شكراً لك! تم استلام رؤياك بنجاح. سوف نتصل بك قريباً لتأكيد الطلب وتفاصيل الدفع.');
-      this.reset();
-      const options = document.querySelectorAll('.package-option, .gender-option, .vision-type');
-      options.forEach(opt => opt.classList.remove('selected'));
+      // إخفاء أي رسائل سابقة
+      document.getElementById('successAlert').style.display = 'none';
+      document.getElementById('errorAlert').style.display = 'none';
+      
+      // هنا يمكنك إضافة التحقق من صحة البيانات إذا لزم الأمر
+      
+      // السماح بالإرسال إلى FormSubmit
+      // سيقوم Formsubmit بإرسال البريد الإلكتروني تلقائياً
+      
+      // عرض رسالة النجاح بعد إرسال النموذج
+      setTimeout(function() {
+        document.getElementById('successAlert').style.display = 'block';
+        // التمرير إلى الأعلى لرؤية رسالة النجاح
+        document.getElementById('successAlert').scrollIntoView({ behavior: 'smooth' });
+      }, 1000);
     });
   </script>
 </body>
