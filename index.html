@@ -318,6 +318,23 @@
       color: var(--primary-color);
     }
     
+    /* التعديلات: استبدال الأسود بالأبيض */
+    .text-muted {
+      color: #6c757d !important; /* رمادي فاتح بدلاً من الأسود الداكن */
+    }
+    
+    .form-control, .form-select {
+      color: #495057; /* رمادي غامق بدلاً من الأسود */
+    }
+    
+    .service-body h4, .vision-type h5, .package-option .form-check-label {
+      color: #0f172a; /* أزرق داكن بدلاً من الأسود */
+    }
+    
+    .service-body p, .vision-type p {
+      color: #6c757d; /* رمادي فاتح بدلاً من الأسود الداكن */
+    }
+    
     @media (max-width: 768px) {
       .hero { padding: 3rem 1rem; }
       section { padding: 1.5rem; }
@@ -515,7 +532,7 @@
         
         <div class="mb-4 mt-4">
           <label for="notes" class="form-label">ملاحظات إضافية</label>
-          <textarea class="form-control" id="notes" name="notes" rows="3" placeholder="أي تفاصيل إضافية ترغب في إضافتها مثل الظروف المحيطة بالرؤيا، المشاعر التي شعرت بها، أو أي أسئلة محددة لديك..."></textarea>
+          <textarea class="form-control" id="notes" name="notes" rows="3" placeholder="أي تفاصيل إضافية ترغب في إضافتها مثل الظروف المحيطة بالرؤيا، المشاعر التي شعرت بها، أو أي أسئلة لديك..."></textarea>
         </div>
         <div class="mb-4">
           <label for="email" class="form-label">البريد الإلكتروني</label>
