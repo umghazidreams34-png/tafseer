@@ -13,13 +13,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      /* لوحة ألوان جديدة */
-      --primary-color: #0f766e;   /* Teal 700 */
-      --secondary-color: #14b8a6; /* Teal 500 */
-      --accent-color: #f59e0b;    /* Amber 500 */
-      --light-color: #f8fafc;     /* Slate 50 */
-      --dark-color: #0f172a;      /* Slate 900 */
-      --text-color: #0f172a;      /* Slate 900 */
+      /* لوحة ألوان جديدة مستوحاة من الطبيعة والروحانية */
+      --primary-color: #2D5A5F;    /* أزرق-أخضر عميق */
+      --secondary-color: #7DB9B6;  /* أزرق-أخضر فاتح */
+      --accent-color: #E9B384;     /* لون سكري دافئ */
+      --light-color: #F5F5F5;      /* خلفية فاتحة */
+      --dark-color: #1E2D2F;       /* أزرق-أخضر داكن جداً */
+      --text-color: #2C3E50;       /* لون نص غامق */
+      --success-color: #4CAF50;    /* لون النجاح */
     }
     
     body {
@@ -30,8 +31,8 @@
     }
     
     .navbar {
-      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-      box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+      background: linear-gradient(135deg, var(--primary-color), var(--dark-color));
+      box-shadow: 0 2px 15px rgba(0,0,0,0.1);
     }
     
     .navbar-brand {
@@ -45,6 +46,7 @@
       font-weight: 500;
       margin: 0 5px;
       transition: all 0.25s ease;
+      position: relative;
     }
     
     .nav-link:hover {
@@ -52,25 +54,59 @@
       transform: translateY(-2px);
     }
     
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--accent-color);
+      transition: width 0.3s ease;
+    }
+    
+    .nav-link:hover::after {
+      width: 100%;
+    }
+    
     .hero {
-      background: linear-gradient(rgba(15, 118, 110, 0.88), rgba(20, 184, 166, 0.85)),
-        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%230f766e" opacity="0.18"/><path d="M30,30 L70,70 M70,30 L30,70" stroke="%23ffffff" stroke-width="8" stroke-linecap="round"/></svg>');
-      background-size: 200px;
+      background: linear-gradient(rgba(45, 90, 95, 0.85), rgba(30, 45, 47, 0.9)),
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%232D5A5F" opacity="0.15"/><path d="M30,30 Q50,10 70,30 T90,50 T70,70 T30,70 T10,50 T30,30" stroke="%23E9B384" stroke-width="2" fill="none" /></svg>');
+      background-size: 300px;
       color: white;
       padding: 5rem 1rem;
       text-align: center;
       position: relative;
+      overflow: hidden;
+    }
+    
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><circle cx="10" cy="10" r="1" fill="%23E9B384" opacity="0.3" /></svg>');
+      animation: stars 20s linear infinite;
+    }
+    
+    @keyframes stars {
+      from { transform: translateY(0); }
+      to { transform: translateY(-100px); }
     }
     
     .hero-content {
       max-width: 800px;
       margin: 0 auto;
+      position: relative;
+      z-index: 1;
     }
     
     .hero h1 {
       font-weight: 700;
       margin-bottom: 1.5rem;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.25);
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
     }
     
     .hero p {
@@ -83,13 +119,19 @@
       width: 120px;
       height: 120px;
       border-radius: 50%;
-      background: rgba(255, 255, 255, 0.18);
+      background: rgba(255, 255, 255, 0.15);
       margin: 0 auto 1.5rem;
       display: flex;
       align-items: center;
       justify-content: center;
-      border: 4px solid rgba(255,255,255,0.9);
-      box-shadow: 0 5px 15px rgba(0,0,0,0.18);
+      border: 4px solid rgba(233, 179, 132, 0.7);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+    }
+    
+    .profile-icon:hover {
+      transform: scale(1.05);
+      border-color: rgba(233, 179, 132, 1);
     }
     
     .profile-icon i {
@@ -102,12 +144,14 @@
       padding: 2.5rem;
       background-color: #ffffff;
       border-radius: 15px;
-      box-shadow: 0 5px 20px rgba(2, 44, 34, 0.05);
-      transition: transform 0.25s ease;
+      box-shadow: 0 5px 20px rgba(45, 90, 95, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border-top: 3px solid var(--secondary-color);
     }
     
     section:hover {
       transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(45, 90, 95, 0.12);
     }
     
     h2 {
@@ -127,21 +171,27 @@
       height: 3px;
       background: var(--accent-color);
       border-radius: 2px;
+      transition: width 0.3s ease;
+    }
+    
+    section:hover h2:after {
+      width: 100px;
     }
     
     .service-card {
       border: none;
       border-radius: 12px;
       overflow: hidden;
-      transition: all 0.25s ease;
+      transition: all 0.3s ease;
       margin-bottom: 1.5rem;
-      box-shadow: 0 5px 15px rgba(2, 44, 34, 0.06);
+      box-shadow: 0 5px 15px rgba(45, 90, 95, 0.08);
       background: #ffffff;
+      height: 100%;
     }
     
     .service-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 14px 28px rgba(2, 44, 34, 0.12);
+      transform: translateY(-8px);
+      box-shadow: 0 14px 28px rgba(45, 90, 95, 0.15);
     }
     
     .service-icon {
@@ -150,6 +200,11 @@
       font-size: 2rem;
       padding: 1.5rem;
       text-align: center;
+      transition: all 0.3s ease;
+    }
+    
+    .service-card:hover .service-icon {
+      background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
     }
     
     .service-body {
@@ -159,15 +214,14 @@
     .form-control {
       border-radius: 10px;
       padding: 12px 15px;
-      border: 1px solid #e5e7eb;
-      transition: all 0.2s ease;
+      border: 1px solid #ddd;
+      transition: all 0.3s ease;
       background: #ffffff;
-      color: #374151; /* لون نص أغمق لتجنب الأسود الصرف */
     }
     
     .form-control:focus {
       border-color: var(--secondary-color);
-      box-shadow: 0 0 0 0.25rem rgba(20, 184, 166, 0.25);
+      box-shadow: 0 0 0 0.25rem rgba(125, 185, 182, 0.25);
     }
     
     .btn-primary {
@@ -176,13 +230,32 @@
       padding: 12px 30px;
       border-radius: 50px;
       font-weight: 700;
-      transition: all 0.25s ease;
+      transition: all 0.3s ease;
       letter-spacing: .2px;
+      position: relative;
+      overflow: hidden;
     }
     
     .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 18px rgba(20, 184, 166, 0.35);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 18px rgba(45, 90, 95, 0.3);
+    }
+    
+    .btn-primary::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: -1;
+    }
+    
+    .btn-primary:hover::after {
+      opacity: 1;
     }
     
     .package-option {
@@ -191,18 +264,19 @@
       padding: 1.25rem;
       margin-bottom: 1rem;
       cursor: pointer;
-      transition: all 0.2s ease;
+      transition: all 0.3s ease;
       background: #ffffff;
     }
     
     .package-option:hover {
       border-color: var(--secondary-color);
-      background-color: rgba(20, 184, 166, 0.06);
+      background-color: rgba(125, 185, 182, 0.08);
     }
     
     .package-option.selected {
       border-color: var(--primary-color);
-      background-color: rgba(15, 118, 110, 0.08);
+      background-color: rgba(45, 90, 95, 0.1);
+      box-shadow: 0 5px 15px rgba(45, 90, 95, 0.1);
     }
     
     .gender-selection {
@@ -218,18 +292,19 @@
       border: 2px solid #eef2f7;
       border-radius: 12px;
       cursor: pointer;
-      transition: all 0.2s ease;
+      transition: all 0.3s ease;
       background: #ffffff;
     }
     
     .gender-option:hover {
       border-color: var(--secondary-color);
-      background-color: rgba(20, 184, 166, 0.06);
+      background-color: rgba(125, 185, 182, 0.08);
     }
     
     .gender-option.selected {
       border-color: var(--primary-color);
-      background-color: rgba(15, 118, 110, 0.08);
+      background-color: rgba(45, 90, 95, 0.1);
+      box-shadow: 0 5px 15px rgba(45, 90, 95, 0.1);
     }
     
     .gender-icon {
@@ -239,7 +314,7 @@
     }
     
     footer {
-      background: linear-gradient(135deg, var(--dark-color), #1f2937);
+      background: linear-gradient(135deg, var(--dark-color), var(--primary-color));
       color: white;
       padding: 3rem 1rem;
       text-align: center;
@@ -255,27 +330,27 @@
       border-radius: 50px;
       color: white;
       text-decoration: none;
-      transition: all 0.25s ease;
+      transition: all 0.3s ease;
     }
     
     .contact-icon:hover {
-      background-color: rgba(255,255,255,0.18);
+      background-color: rgba(255,255,255,0.2);
       transform: translateY(-3px);
     }
     
     .copyright {
       margin-top: 2rem;
       padding-top: 1.5rem;
-      border-top: 1px solid rgba(255,255,255,0.12);
+      border-top: 1px solid rgba(255,255,255,0.15);
     }
     
     .contact-section {
       text-align: center;
       margin: 3rem 0;
       padding: 2rem;
-      background: linear-gradient(135deg, rgba(15, 118, 110, 0.08), rgba(20, 184, 166, 0.10));
+      background: linear-gradient(135deg, rgba(45, 90, 95, 0.1), rgba(125, 185, 182, 0.15));
       border-radius: 15px;
-      border: 1px solid rgba(2, 44, 34, 0.06);
+      border: 1px solid rgba(125, 185, 182, 0.2);
     }
     
     .contact-icon-large {
@@ -299,18 +374,19 @@
       border: 2px solid #eef2f7;
       border-radius: 12px;
       cursor: pointer;
-      transition: all 0.2s ease;
+      transition: all 0.3s ease;
       background: #ffffff;
     }
     
     .vision-type:hover {
       border-color: var(--secondary-color);
-      background-color: rgba(20, 184, 166, 0.06);
+      background-color: rgba(125, 185, 182, 0.08);
     }
     
     .vision-type.selected {
       border-color: var(--primary-color);
-      background-color: rgba(15, 118, 110, 0.08);
+      background-color: rgba(45, 90, 95, 0.1);
+      box-shadow: 0 5px 15px rgba(45, 90, 95, 0.1);
     }
     
     .vision-icon {
@@ -319,32 +395,8 @@
       color: var(--primary-color);
     }
     
-    /* تحسينات للألوان لتجنب الأسود الصرف */
-    .text-muted {
-      color: #6b7280 !important; /* رمادي أغمق قليلاً */
-    }
-    
-    .service-body h4, .vision-type h5, .package-option .form-check-label {
-      color: #1f2937; /* أزرق داكن جداً بدلاً من الأسود */
-    }
-    
-    .service-body p, .vision-type p, section p {
-      color: #4b5563; /* رمادي غامق بدلاً من الأسود */
-    }
-    
-    .form-check-label {
-      color: #374151; /* رمادي غامق */
-    }
-    
-    .form-label {
-      color: #374151; /* رمادي غامق */
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-    }
-    
     /* تحسينات للعرض في GitHub */
     @media (prefers-color-scheme: dark) {
-      /* هذه القواعد ستطبق فقط إذا كان النظام في الوضع المظلم */
       body {
         background-color: #0f172a;
         color: #e5e7eb;
@@ -354,6 +406,7 @@
       .gender-option, .vision-type, .form-control {
         background-color: #1e293b;
         color: #e5e7eb;
+        border-color: #374151;
       }
       
       .service-body h4, .vision-type h5, 
@@ -368,7 +421,6 @@
       }
       
       .form-control {
-        border-color: #374151;
         background-color: #1f2937;
       }
     }
@@ -384,6 +436,7 @@
   </style>
 </head>
 <body>
+  <!-- باقي المحتوى يبقى كما هو -->
   <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
     <div class="container">
       <a class="navbar-brand" href="#">
