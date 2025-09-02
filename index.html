@@ -13,14 +13,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary-color: #2D6A4F;
-      --secondary-color: #40916C;
-      --accent-color: #D4A373;
-      --light-color: #F8F9FA;
-      --dark-color: #1B4332;
-      --text-color: #333333;
-      --light-green: #B7E4C7;
-      --cream: #FEFAE0;
+      /* لوحة ألوان جديدة */
+      --primary-color: #0f766e;   /* Teal 700 */
+      --secondary-color: #14b8a6; /* Teal 500 */
+      --accent-color: #f59e0b;    /* Amber 500 */
+      --light-color: #f8fafc;     /* Slate 50 */
+      --dark-color: #0f172a;      /* Slate 900 */
+      --text-color: #0f172a;      /* Slate 900 */
     }
     
     body {
@@ -32,7 +31,7 @@
     
     .navbar {
       background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-      box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 15px rgba(0,0,0,0.08);
     }
     
     .navbar-brand {
@@ -45,16 +44,17 @@
       color: rgba(255,255,255,0.9) !important;
       font-weight: 500;
       margin: 0 5px;
-      transition: all 0.3s ease;
+      transition: all 0.25s ease;
     }
     
     .nav-link:hover {
-      color: white !important;
+      color: #ffffff !important;
       transform: translateY(-2px);
     }
     
     .hero {
-      background: linear-gradient(rgba(45, 106, 79, 0.85), rgba(64, 145, 108, 0.85)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%232D6A4F" opacity="0.2"/><path d="M30,30 L70,70 M70,30 L30,70" stroke="%23ffffff" stroke-width="8" stroke-linecap="round"/></svg>');
+      background: linear-gradient(rgba(15, 118, 110, 0.88), rgba(20, 184, 166, 0.85)),
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%230f766e" opacity="0.18"/><path d="M30,30 L70,70 M70,30 L30,70" stroke="%23ffffff" stroke-width="8" stroke-linecap="round"/></svg>');
       background-size: 200px;
       color: white;
       padding: 5rem 1rem;
@@ -70,25 +70,26 @@
     .hero h1 {
       font-weight: 700;
       margin-bottom: 1.5rem;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.25);
     }
     
     .hero p {
-      font-size: 1.3rem;
+      font-size: 1.2rem;
       margin-bottom: 2rem;
+      opacity: 0.95;
     }
     
     .profile-icon {
       width: 120px;
       height: 120px;
       border-radius: 50%;
-      background: rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.18);
       margin: 0 auto 1.5rem;
       display: flex;
       align-items: center;
       justify-content: center;
-      border: 4px solid white;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      border: 4px solid rgba(255,255,255,0.9);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.18);
     }
     
     .profile-icon i {
@@ -99,16 +100,14 @@
     section {
       margin: 3rem auto;
       padding: 2.5rem;
-      background-color: white;
+      background-color: #ffffff;
       border-radius: 15px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-      transition: transform 0.3s ease;
-      border-top: 4px solid var(--primary-color);
+      box-shadow: 0 5px 20px rgba(2, 44, 34, 0.05);
+      transition: transform 0.25s ease;
     }
     
     section:hover {
       transform: translateY(-5px);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
     }
     
     h2 {
@@ -127,21 +126,22 @@
       width: 60px;
       height: 3px;
       background: var(--accent-color);
+      border-radius: 2px;
     }
     
     .service-card {
       border: none;
-      border-radius: 10px;
+      border-radius: 12px;
       overflow: hidden;
-      transition: all 0.3s ease;
+      transition: all 0.25s ease;
       margin-bottom: 1.5rem;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-      border-top: 3px solid var(--secondary-color);
+      box-shadow: 0 5px 15px rgba(2, 44, 34, 0.06);
+      background: #ffffff;
     }
     
     .service-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 12px 20px rgba(0,0,0,0.15);
+      transform: translateY(-6px);
+      box-shadow: 0 14px 28px rgba(2, 44, 34, 0.12);
     }
     
     .service-icon {
@@ -157,15 +157,16 @@
     }
     
     .form-control {
-      border-radius: 8px;
+      border-radius: 10px;
       padding: 12px 15px;
-      border: 1px solid #ddd;
-      transition: all 0.3s ease;
+      border: 1px solid #e5e7eb;
+      transition: all 0.2s ease;
+      background: #ffffff;
     }
     
     .form-control:focus {
-      border-color: var(--primary-color);
-      box-shadow: 0 0 0 0.25rem rgba(45, 106, 79, 0.25);
+      border-color: var(--secondary-color);
+      box-shadow: 0 0 0 0.25rem rgba(20, 184, 166, 0.25);
     }
     
     .btn-primary {
@@ -173,33 +174,34 @@
       border: none;
       padding: 12px 30px;
       border-radius: 50px;
-      font-weight: 600;
-      transition: all 0.3s ease;
+      font-weight: 700;
+      transition: all 0.25s ease;
+      letter-spacing: .2px;
     }
     
     .btn-primary:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 5px 15px rgba(45, 106, 79, 0.4);
-      background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+      transform: translateY(-2px);
+      box-shadow: 0 8px 18px rgba(20, 184, 166, 0.35);
     }
     
     .package-option {
-      border: 2px solid #eee;
-      border-radius: 10px;
-      padding: 1.5rem;
+      border: 2px solid #eef2f7;
+      border-radius: 12px;
+      padding: 1.25rem;
       margin-bottom: 1rem;
       cursor: pointer;
-      transition: all 0.3s ease;
+      transition: all 0.2s ease;
+      background: #ffffff;
     }
     
     .package-option:hover {
-      border-color: var(--primary-color);
-      background-color: rgba(45, 106, 79, 0.05);
+      border-color: var(--secondary-color);
+      background-color: rgba(20, 184, 166, 0.06);
     }
     
     .package-option.selected {
       border-color: var(--primary-color);
-      background-color: rgba(45, 106, 79, 0.1);
+      background-color: rgba(15, 118, 110, 0.08);
     }
     
     .gender-selection {
@@ -212,20 +214,21 @@
       flex: 1;
       text-align: center;
       padding: 15px;
-      border: 2px solid #eee;
-      border-radius: 10px;
+      border: 2px solid #eef2f7;
+      border-radius: 12px;
       cursor: pointer;
-      transition: all 0.3s ease;
+      transition: all 0.2s ease;
+      background: #ffffff;
     }
     
     .gender-option:hover {
-      border-color: var(--primary-color);
-      background-color: rgba(45, 106, 79, 0.05);
+      border-color: var(--secondary-color);
+      background-color: rgba(20, 184, 166, 0.06);
     }
     
     .gender-option.selected {
       border-color: var(--primary-color);
-      background-color: rgba(45, 106, 79, 0.1);
+      background-color: rgba(15, 118, 110, 0.08);
     }
     
     .gender-icon {
@@ -235,7 +238,7 @@
     }
     
     footer {
-      background: linear-gradient(135deg, var(--dark-color), var(--primary-color));
+      background: linear-gradient(135deg, var(--dark-color), #1f2937);
       color: white;
       padding: 3rem 1rem;
       text-align: center;
@@ -245,39 +248,39 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      margin: 1rem;
+      margin: 0.5rem;
       background-color: rgba(255,255,255,0.1);
-      padding: 12px 25px;
+      padding: 12px 22px;
       border-radius: 50px;
       color: white;
       text-decoration: none;
-      transition: all 0.3s ease;
+      transition: all 0.25s ease;
     }
     
     .contact-icon:hover {
-      background-color: rgba(255,255,255,0.2);
+      background-color: rgba(255,255,255,0.18);
       transform: translateY(-3px);
     }
     
     .copyright {
       margin-top: 2rem;
       padding-top: 1.5rem;
-      border-top: 1px solid rgba(255,255,255,0.1);
+      border-top: 1px solid rgba(255,255,255,0.12);
     }
     
     .contact-section {
       text-align: center;
       margin: 3rem 0;
       padding: 2rem;
-      background: linear-gradient(135deg, rgba(45, 106, 79, 0.1), rgba(64, 145, 108, 0.1));
+      background: linear-gradient(135deg, rgba(15, 118, 110, 0.08), rgba(20, 184, 166, 0.10));
       border-radius: 15px;
-      border-left: 4px solid var(--accent-color);
+      border: 1px solid rgba(2, 44, 34, 0.06);
     }
     
     .contact-icon-large {
       font-size: 3rem;
       color: var(--primary-color);
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.25rem;
     }
     
     .vision-types {
@@ -292,20 +295,21 @@
       min-width: 150px;
       text-align: center;
       padding: 15px;
-      border: 2px solid #eee;
-      border-radius: 10px;
+      border: 2px solid #eef2f7;
+      border-radius: 12px;
       cursor: pointer;
-      transition: all 0.3s ease;
+      transition: all 0.2s ease;
+      background: #ffffff;
     }
     
     .vision-type:hover {
-      border-color: var(--primary-color);
-      background-color: rgba(45, 106, 79, 0.05);
+      border-color: var(--secondary-color);
+      background-color: rgba(20, 184, 166, 0.06);
     }
     
     .vision-type.selected {
       border-color: var(--primary-color);
-      background-color: rgba(45, 106, 79, 0.1);
+      background-color: rgba(15, 118, 110, 0.08);
     }
     
     .vision-icon {
@@ -315,32 +319,12 @@
     }
     
     @media (max-width: 768px) {
-      .hero {
-        padding: 3rem 1rem;
-      }
-      
-      section {
-        padding: 1.5rem;
-      }
-      
-      .contact-icon {
-        display: flex;
-        justify-content: center;
-        margin: 0.5rem 0;
-      }
-      
-      .profile-icon {
-        width: 100px;
-        height: 100px;
-      }
-      
-      .profile-icon i {
-        font-size: 2.5rem;
-      }
-      
-      .gender-selection, .vision-types {
-        flex-direction: column;
-      }
+      .hero { padding: 3rem 1rem; }
+      section { padding: 1.5rem; }
+      .contact-icon { display: flex; justify-content: center; margin: 0.5rem 0; }
+      .profile-icon { width: 100px; height: 100px; }
+      .profile-icon i { font-size: 2.5rem; }
+      .gender-selection, .vision-types { flex-direction: column; }
     }
   </style>
 </head>
@@ -531,7 +515,7 @@
         
         <div class="mb-4 mt-4">
           <label for="notes" class="form-label">ملاحظات إضافية</label>
-          <textarea class="form-control" id="notes" name="notes" rows="3" placeholder="أي تفاصيل إضافية ترغب في إضافتها مثل الظروف المحيطة بالرؤيا، المشاعر التي شعرت بها، أو أي أسئلة لديك..."></textarea>
+          <textarea class="form-control" id="notes" name="notes" rows="3" placeholder="أي تفاصيل إضافية ترغب في إضافتها مثل الظروف المحيطة بالرؤيا، المشاعر التي شعرت بها، أو أي أسئلة محددة لديك..."></textarea>
         </div>
         <div class="mb-4">
           <label for="email" class="form-label">البريد الإلكتروني</label>
@@ -575,8 +559,6 @@
   <script>
     function selectPackage(element, num) {
       document.getElementById('option' + num).checked = true;
-      
-      // إضافة تأثير التحديد
       const options = document.querySelectorAll('.package-option');
       options.forEach(opt => opt.classList.remove('selected'));
       element.classList.add('selected');
@@ -584,21 +566,17 @@
     
     function selectGender(element, gender) {
       document.getElementById('gender' + (gender === 'male' ? 'Male' : 'Female')).checked = true;
-      
-      // إضافة تأثير التحديد
       const options = document.querySelectorAll('.gender-option');
       options.forEach(opt => opt.classList.remove('selected'));
       element.classList.add('selected');
     }
     
     function selectVisionType(element) {
-      // إضافة تأثير التحديد
       const options = document.querySelectorAll('.vision-type');
       options.forEach(opt => opt.classList.remove('selected'));
       element.classList.add('selected');
     }
     
-    // تأثير التمرير السلس للروابط
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -608,13 +586,10 @@
       });
     });
     
-    // منع إرسال النموذج فعلياً والعرض رسالة نجاح
     document.getElementById('visionForm').addEventListener('submit', function(e) {
       e.preventDefault();
       alert('شكراً لك! تم استلام رؤياك بنجاح. سوف نتصل بك قريباً لتأكيد الطلب وتفاصيل الدفع.');
       this.reset();
-      
-      // إزالة التحديد من جميع الخيارات
       const options = document.querySelectorAll('.package-option, .gender-option, .vision-type');
       options.forEach(opt => opt.classList.remove('selected'));
     });
