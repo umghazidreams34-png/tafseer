@@ -162,6 +162,7 @@
       border: 1px solid #e5e7eb;
       transition: all 0.2s ease;
       background: #ffffff;
+      color: #374151; /* لون نص أغمق لتجنب الأسود الصرف */
     }
     
     .form-control:focus {
@@ -318,21 +319,58 @@
       color: var(--primary-color);
     }
     
-    /* التعديلات: استبدال الأسود بالأبيض */
+    /* تحسينات للألوان لتجنب الأسود الصرف */
     .text-muted {
-      color: #6c757d !important; /* رمادي فاتح بدلاً من الأسود الداكن */
-    }
-    
-    .form-control, .form-select {
-      color: #495057; /* رمادي غامق بدلاً من الأسود */
+      color: #6b7280 !important; /* رمادي أغمق قليلاً */
     }
     
     .service-body h4, .vision-type h5, .package-option .form-check-label {
-      color: #0f172a; /* أزرق داكن بدلاً من الأسود */
+      color: #1f2937; /* أزرق داكن جداً بدلاً من الأسود */
     }
     
-    .service-body p, .vision-type p {
-      color: #6c757d; /* رمادي فاتح بدلاً من الأسود الداكن */
+    .service-body p, .vision-type p, section p {
+      color: #4b5563; /* رمادي غامق بدلاً من الأسود */
+    }
+    
+    .form-check-label {
+      color: #374151; /* رمادي غامق */
+    }
+    
+    .form-label {
+      color: #374151; /* رمادي غامق */
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    
+    /* تحسينات للعرض في GitHub */
+    @media (prefers-color-scheme: dark) {
+      /* هذه القواعد ستطبق فقط إذا كان النظام في الوضع المظلم */
+      body {
+        background-color: #0f172a;
+        color: #e5e7eb;
+      }
+      
+      section, .service-card, .package-option, 
+      .gender-option, .vision-type, .form-control {
+        background-color: #1e293b;
+        color: #e5e7eb;
+      }
+      
+      .service-body h4, .vision-type h5, 
+      .package-option .form-check-label, 
+      .form-label, .form-control {
+        color: #e5e7eb;
+      }
+      
+      .service-body p, .vision-type p, 
+      section p, .text-muted {
+        color: #cbd5e1;
+      }
+      
+      .form-control {
+        border-color: #374151;
+        background-color: #1f2937;
+      }
     }
     
     @media (max-width: 768px) {
